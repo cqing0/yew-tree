@@ -4,9 +4,24 @@
 
 int main()
 {
-	FILE * textFile;
+	for (int i = 0; i < 1000; i++)
+	{
+		char fileName[30];
+		sprintf(fileName, "test_data/test_text%d.txt", i);
 
-	textFile = fopen("test_text.txt", "w");
+		FILE * textFile = fopen(fileName, "w");
 
-	fclose(textFile);
+		if (textFile == NULL)
+		{
+				printf("Error in creating test text file: %s - at integer %d\n", fileName, i);
+				return 1;
+		}
+		else
+		{
+			fprintf(textFile, "This is text file %d", i);
+			fclose(textFile);
+		}
+	}
+
+	return 0;
 }
