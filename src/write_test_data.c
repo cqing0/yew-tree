@@ -4,7 +4,13 @@
 
 void createManyFiles()
 {
-	for (int i = 0; i < 1000; i++)
+	int numberOfFilesToCreate = 100;
+
+	printf("Specify the number of files to generate? Default is %d...\n", numberOfFilesToCreate);
+
+	//scanf("%d", &numberOfFilesToCreate);
+
+	for (int i = 0; i < numberOfFilesToCreate; i++)
 	{
 		char fileName[30];
 		sprintf(fileName, "test_data/test_text%d.txt", i);
