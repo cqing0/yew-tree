@@ -3,7 +3,7 @@
 #include <tchar.h>
 #include "write_test_data.h"
 
-void listFilesInDir(const char * path)
+void listFilesInDir(TCHAR path)
 {
 	WIN32_FIND_DATA findFileData;
 	HANDLE hFind = FindFirstFile(path, &findFileData);
@@ -30,11 +30,17 @@ int main()
 	TCHAR buffer[MAX_PATH];
 	DWORD length = GetCurrentDirectory(MAX_PATH, buffer);
 	
-	createManyFiles();
-	const char * dirPathToFiles = buffer;
-	_tprintf(_T("Curr dir is %s\n"), dirPathToFiles);
+	//createManyFiles();
+	TCHAR workingDir = buffer;
+	char testDataDir[] = "test_data";
 
-	//listFilesInDir(dirPathToFiles);
+	char pathJoined[MAX_PATH];
+
+	sprintf(pathJoined, "%s\\%s", workingDir, testDataDir);
+
+	_tprintf(_T("Test Data path is %s\n"), pathJoined);
+
+	listFilesInDir(pathJoined);
 
 	return 0;
 }
