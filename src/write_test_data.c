@@ -2,7 +2,7 @@
 
 // File to generate junk text files
 
-int main()
+void createManyFiles()
 {
 	for (int i = 0; i < 1000; i++)
 	{
@@ -14,7 +14,6 @@ int main()
 		if (textFile == NULL)
 		{
 				printf("Error in creating test text file: %s - at integer %d\n", fileName, i);
-				return 1;
 		}
 		else
 		{
@@ -22,6 +21,4 @@ int main()
 			fclose(textFile);
 		}
 	}
-
-	return 0;
 }

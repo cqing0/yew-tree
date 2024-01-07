@@ -1,2 +1,2 @@
-test_text: src/write_test_data.c
-	gcc src/write_test_data.c -std=c99 -o builds/write_test_data.exe
+main: src/yew-tree.c
+	gcc src/yew-tree.c -std=c99 -o builds/yew-tree.exe
