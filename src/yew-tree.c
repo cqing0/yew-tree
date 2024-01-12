@@ -18,7 +18,14 @@ void listFilesInDir(TCHAR * path)
 
 	do
 	{
-		printf("File: %s\n", findFileData.cFileName);
+		if (findFileData.dwFileAttributes == FILE_ATTRIBUTE_DIRECTORY)
+		{
+			printf("Folder: %s\n", findFileData.cFileName);
+		}
+		else
+		{
+			printf("File: %s\n", findFileData.cFileName);
+		}
 	}
 	while (FindNextFile(hFind, &findFileData));
 
@@ -30,7 +37,8 @@ int main()
 
 	TCHAR runningFromPath[MAX_PATH];
 	DWORD length = GetCurrentDirectory(MAX_PATH, runningFromPath);
-	TCHAR relativePath[] = "\\test_data\\*.txt";
+	TCHAR relativePath[] = "\\test_data\\*";
+	/* TCHAR relativePath[] = "\\test_data\\*.txt"; */
 	TCHAR testFolderPath[] = "\\test_data\\testFolder";
 
 	size_t totalSizeOfPath = strlen(runningFromPath) + strlen(relativePath) + 1;
