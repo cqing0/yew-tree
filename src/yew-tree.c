@@ -24,7 +24,8 @@ void listFilesInDir(TCHAR * path)
 		}
 		else
 		{
-			printf("File: %s\n", findFileData.cFileName);
+			printf("File: %s", findFileData.cFileName);
+			printf(" | Size: %d Bytes\n", findFileData.nFileSizeLow);
 		}
 	}
 	while (FindNextFile(hFind, &findFileData));
