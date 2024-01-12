@@ -45,7 +45,8 @@ int main()
 	//printf("Trying to generate many text files...\n");
 	//createManyFiles();
 	
-	listFilesInDir(pathJoined);
+	/* listFilesInDir(pathJoined); */
+	createManyFolders();
 
 	return 0;
 }

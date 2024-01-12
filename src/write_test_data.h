@@ -2,5 +2,6 @@
 #define WRITE_TEST_DATA_H
 
 void createManyFiles();
+void createManyFolders();
 
 #endif

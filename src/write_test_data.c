@@ -1,3 +1,4 @@
+#include <Windows.h>
 #include <stdio.h>
 
 // File to generate junk text files
@@ -27,4 +28,11 @@ void createManyFiles()
 			fclose(textFile);
 		}
 	}
+}
+
+void createManyFolders()
+{
+	LPCSTR folderPath = "C:\\work\\yew-tree\\test_data\\testofolder";
+
+	CreateDirectory(folderPath, NULL);
 }
