@@ -4,9 +4,6 @@
 #include <string.h>
 #include "write_test_data.h"
 
-// Temp max path length
-#define MAX_PATH_LENGTH 128
-
 void listFilesInDir(TCHAR * path)
 {
 	printf("The path is %s\n", path);
@@ -19,10 +16,11 @@ void listFilesInDir(TCHAR * path)
 		return;
 	}
 
-	while (FindNextFile(hFind, &findFileData))
+	do
 	{
 		printf("File: %s\n", findFileData.cFileName);
 	}
+	while (FindNextFile(hFind, &findFileData));
 
 	FindClose(hFind);
 }
@@ -33,6 +31,7 @@ int main()
 	TCHAR runningFromPath[MAX_PATH];
 	DWORD length = GetCurrentDirectory(MAX_PATH, runningFromPath);
 	TCHAR relativePath[] = "\\test_data\\*.txt";
+	TCHAR testFolderPath[] = "\\test_data\\testFolder";
 
 	size_t totalSizeOfPath = strlen(runningFromPath) + strlen(relativePath) + 1;
 	
@@ -44,9 +43,9 @@ int main()
 	
 	//printf("Trying to generate many text files...\n");
 	//createManyFiles();
+	//createManyFolders();
 	
-	/* listFilesInDir(pathJoined); */
-	createManyFolders();
+	listFilesInDir(pathJoined);
 
 	return 0;
 }

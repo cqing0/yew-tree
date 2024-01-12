@@ -5,7 +5,7 @@
 
 void createManyFiles()
 {
-	int numberOfFilesToCreate = 100;
+	int numberOfFilesToCreate = 10;
 
 	printf("Specify the number of files to generate? Default is %d...\n", numberOfFilesToCreate);
 
